@@ -13,4 +13,24 @@ public class Album implements Comparable<Album> {
         this.artistNames = new ArrayList<String>();
         this.numberOfSongs = numSongs;
     }
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID: ").append(albumID).append(" -- ");
+        for (int i = 0; i < artistNames.size(); i++) {
+            sb.append(artistNames.get(i));
+            if (i != artistNames.size() - 1) {
+                sb.append(" -> ");
+            }
+        }
+        return sb.toString();
+    }
+    public void addArtists(String artistNames){
+        this.artistNames.add(artistNames);
+    }
+    @Override
+    public int compareTo(Album album1){
+        if(this.numberOfSongs == album1.numberOfSongs)
+            return 0;
+        else return -1;
+    }
 }
