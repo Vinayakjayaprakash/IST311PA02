@@ -55,4 +55,29 @@ public class DoubleLinkedList {
         }
         return toInsert;
     }
+    //delete a node in a particular position
+    public Node<Album> deletePos(int delposition) {
+        Node<Album> toDelete;
+        if (head == null) {
+            toDelete = head;
+        } else {
+            Node<Album> current = this.head;
+            if (delposition == 1) {
+
+                head = head.next;
+                toDelete = current;
+            }
+
+            int pos = 1;
+            while ((pos < delposition - 1) && (current.next != null)) {
+
+                current = current.next;
+                pos++;
+
+            }
+            toDelete = current.next;
+            current.next = current.next.next;
+        }
+        return toDelete;
+    }
 }
