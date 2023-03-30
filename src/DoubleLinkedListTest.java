@@ -38,7 +38,19 @@ class DoubleLinkedListTest {
         dll.insert(3,album4);
         assertEquals("Test Title 4",dll.tail.album.albumTitle);
     }
+    @Test
+    public void testDeletePos() {
+        DoubleLinkedList dll = new DoubleLinkedList();
+        Album album1 = new Album(1, "Test Title 1", 5);
+        Album album2 = new Album(2, "Test Title 2", 5);
+        Album album3 = new Album(3, "Test Title 3", 5);
+        dll.append(album1);
+        dll.append(album2);
+        dll.append(album3);
+        Node<Album> deletedNode = dll.deletePos(2);
+        assertEquals(album2, deletedNode.album);
 
+    }
 
 
 }
