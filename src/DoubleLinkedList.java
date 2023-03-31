@@ -100,4 +100,21 @@ public class DoubleLinkedList {
         }
         return -1;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stb = new StringBuilder();
+        if (head == null) {//checks if the current node is equal to null
+            stb.append("");
+        } else {
+            Node<Album> current = head;
+            while (current != null) { //if not it appends the next block to add a number and the arrow
+                stb.append(current.album.albumID);
+                stb.append("-->");
+                current = current.next;
+            }
+            stb.append("NULL");//if it is null it adds the null and ends the linked list
+        }
+        return stb.toString();
+    }
 }

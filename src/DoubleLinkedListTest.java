@@ -75,4 +75,19 @@ class DoubleLinkedListTest {
         Album album4 = new Album(3, "Test Artist 4","Test Title 4", 5);
         assertEquals(-1,dll.getIndex(album4));
     }
+@Test
+    public void toStringTest() {
+
+        DoubleLinkedList dll = new DoubleLinkedList();
+        Album album1 = new Album(1, "Test Artist 1","Test Title 1", 5);
+        Album album2 = new Album(2, "Test Artist 2","Test Title 2", 5);
+        Album album3 = new Album(3, "Test Artist 3","Test Title 3", 5);
+        dll.append(album1);
+        dll.append(album2);
+        dll.append(album3);
+        assertEquals("1-->2-->3-->NULL", dll.toString());
+    Album album4 = new Album(4, "Test Artist 4","Test Title 4", 5);
+    dll.append(album4);
+    assertEquals("1-->2-->3-->4-->NULL", dll.toString());
+    }
 }
