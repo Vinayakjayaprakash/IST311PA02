@@ -58,7 +58,7 @@ public class DoubleLinkedList {
     }
 
     //delete a node in a particular position
-    public Node<Album> deletePos(int delposition) {
+   /* public Node<Album> deletePos(int delposition) {
         IllegalArgumentException IAe = new IllegalArgumentException();
         if (delposition < 0) {
             throw IAe;
@@ -84,6 +84,42 @@ public class DoubleLinkedList {
             toDelete = current.next;
 
         }
+        return toDelete;
+    }*/
+
+
+    public Node<Album> deletePos(int delposition) {
+        IllegalArgumentException IAe = new IllegalArgumentException();
+        if (delposition < 0) {
+            throw IAe;
+        }
+        Node<Album> toDelete;
+        if (head == null) {
+            throw IAe;
+        } else if (delposition == 0) {
+            toDelete = head;
+            head = head.next;
+            if (head != null) {
+                head.previous = null;
+            }
+        } else {
+            Node<Album> current = head;
+            int pos = 0;
+            while (pos < delposition - 1 && current.next != null) {
+                current = current.next;
+                pos++;
+            }
+            if (current.next == null) {
+                throw IAe;
+            }
+            toDelete = current.next;
+            current.next = toDelete.next;
+            if (toDelete.next != null) {
+                toDelete.next.previous = current;
+            }
+        }
+        toDelete.next = null;
+        toDelete.previous = null;
         return toDelete;
     }
 

@@ -57,8 +57,19 @@ class DoubleLinkedListTest {
         dll.append(album3);
         Node<Album> deletedNode = dll.deletePos(1); //deleted node at position 2 (album2)
         assertEquals(album2, deletedNode.album);
+        assertEquals(1,dll.getIndex(album3));
         Node<Album> deletedNode2 = dll.deletePos(1);//deleted node at position 1 (album3) which is now at position 1
         assertEquals(album3, deletedNode2.album);
+
+        try{
+            Node<Album> deletedNode3 = dll.deletePos(2);
+            fail("Expected error to be thrown");
+        }
+
+        catch( IllegalArgumentException e){
+
+        }
+        //assertEquals(1,dll.getIndex(album3));
 
     }
 
