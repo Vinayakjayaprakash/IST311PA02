@@ -153,4 +153,18 @@ return this.head;
         }
         return stb.toString();
     }
+
+
+    public  Node<Album> partition(int data) {
+        DoubleLinkedList newList = new DoubleLinkedList();
+        Node<Album> current = this.head;
+        while (current != null) {
+            if (current.album.albumID >= data) {
+                newList.append(current.album);
+            }
+            current = current.next;
+        }
+        return newList.head;
+    }
+
 }

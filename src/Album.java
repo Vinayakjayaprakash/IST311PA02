@@ -25,9 +25,7 @@ public class Album implements Comparable<Album> {
         sb.append("] -- NULL");
         return sb.toString();
     }
-    public void addArtists(String artistNames){
-        this.artistNames.add(artistNames);
-    }
+
     @Override
     public int compareTo(Album album1){
         if(this.numberOfSongs == album1.numberOfSongs)
