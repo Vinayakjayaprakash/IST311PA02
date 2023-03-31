@@ -69,7 +69,7 @@ class DoubleLinkedListTest {
         catch( IllegalArgumentException e){
 
         }
-        //assertEquals(1,dll.getIndex(album3));
+
 
     }
 
@@ -110,6 +110,11 @@ class DoubleLinkedListTest {
         DoubleLinkedList dll = new DoubleLinkedList();
         Album album1 = new Album(1, new ArrayList<>(Arrays.asList("Test Artist 1","Test Artist 2")),"Test Title 1", 5);
         dll.append(album1);
-        assertEquals("1: 5--[Test Artist 1,Test Artist 2,]", album1.toString());
+        assertEquals("ID: 1 NUMBER OF SONGS 5--[Test Artist 1,Test Artist 2,] -- NULL", album1.toString());
+    }
+    @Test
+    public void TestShuffle() {
+
+
     }
 }

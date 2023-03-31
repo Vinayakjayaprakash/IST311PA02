@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class DoubleLinkedList {
     Node<Album> head;
     Node<Album> tail;
@@ -57,37 +60,34 @@ public class DoubleLinkedList {
         return toInsert;
     }
 
-    //delete a node in a particular position
-   /* public Node<Album> deletePos(int delposition) {
-        IllegalArgumentException IAe = new IllegalArgumentException();
-        if (delposition < 0) {
-            throw IAe;
-        }
+public Node<Album> shuffle(){
+    if (this.head == null)
+        return this.head;
+    else {
+        Node<Album> current = this.head;
+        ArrayList<Album> arraylistalbum = new ArrayList<Album>();
+        while (current != null) {
 
-        Node<Album> toDelete;
-        if (head == null) {
-            throw IAe;
-        } else if (delposition == 0) {
-            toDelete = head;
-            head = head.next;
-
-        } else {
-            Node<Album> current = head;
-            int pos = 0;
-            while (pos < delposition - 1 && current.next != null) {
-                current = current.next;
-                pos++;
-            }
-            if (current.next == null) {
-                throw IAe;
-            }
-            toDelete = current.next;
+            arraylistalbum.add(current.album);
+            current = current.next;
 
         }
-        return toDelete;
-    }*/
+        current = this.head;
+        int tempSize = arraylistalbum.size() - (arraylistalbum.size() % 2);
+        for (int i = 0; i < tempSize; i = i + 2) {
+            Collections.swap(arraylistalbum, i, i + 1);
+        }
 
+        current = this.head;
+        for (int i = 0; i < tempSize; i++) {
 
+            current.album = arraylistalbum.get(i);
+            current = current.next;
+
+        }
+    }
+return this.head;
+    }
     public Node<Album> deletePos(int delposition) {
         IllegalArgumentException IAe = new IllegalArgumentException();
         if (delposition < 0) {

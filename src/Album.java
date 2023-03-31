@@ -16,13 +16,13 @@ public class Album implements Comparable<Album> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(albumID).append(": ").append(numberOfSongs).append("--[");
+        sb.append("ID: ").append(albumID).append(" NUMBER OF SONGS ").append(numberOfSongs).append("--[");
         for (int i = 0; i < artistNames.size(); i++) {
             sb.append(artistNames.get(i)).append(",");
 
 
         }
-        sb.append("]");
+        sb.append("] -- NULL");
         return sb.toString();
     }
     public void addArtists(String artistNames){
