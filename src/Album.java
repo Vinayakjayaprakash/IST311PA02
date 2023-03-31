@@ -7,7 +7,7 @@ public class Album implements Comparable<Album> {
     String albumTitle;
     int numberOfSongs;
 
-    public Album(int albumID, String title, int numSongs) {
+    public Album(int albumID,String artistNames, String title, int numSongs) {
         this.albumID = albumID;
         this.albumTitle = title;
         this.artistNames = new ArrayList<String>();
@@ -15,11 +15,11 @@ public class Album implements Comparable<Album> {
     }
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: ").append(albumID).append(" -- ");
+        sb.append(albumID).append(": ").append(numberOfSongs).append("--[");
         for (int i = 0; i < artistNames.size(); i++) {
             sb.append(artistNames.get(i));
             if (i != artistNames.size() - 1) {
-                sb.append(" -> ");
+                sb.append("]");
             }
         }
         return sb.toString();
